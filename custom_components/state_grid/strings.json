@@ -1,0 +1,132 @@
+{
+  "config": {
+    "flow_title": "国家电网",
+    "step": {
+      "user": {
+        "title": "国家电网",
+        "description": "集成国家电网可以选择网上国网 App 扫码登录或短信验证码登录。如登录异常，可至 **HassBox全屋智能** 微信公众号联系客服。"
+      },
+      "code_login": {
+        "title": "短信验证码登录",
+        "description": "手机号需先在网上电网 App 注册并绑定户号",
+        "data": {
+          "phone": "请输入手机号"
+        }
+      },
+      "verfiy_code": {
+        "title": "短信验证码登录",
+        "data": {
+          "code": "请输入验证码"
+        }
+      },
+      "check_qr_code": {
+        "title": "网上国网 App 扫码登录",
+        "description": "\n {qr_image} \n\n\n 请使用 网上国网 App 扫码登录，确认登录后再点击提交。"
+      }
+    },
+    "abort": {
+      "single_instance_allowed": "该集成已经配置过了，且只能配置一次。若要重新配置，请先删除旧集成。",
+      "get_qr_code_error": "{errmsg}",
+      "check_qr_code_error": "{errmsg}"
+    }
+  },
+  "options": {
+    "step": {
+      "debug": {
+        "title": "国家电网",
+        "description": "国家电网当日用电等数据一般隔天才会刷新，且各地区时间不一，可根据情况适当调整接口轮询间隔。",
+        "data": {
+          "refresh_interval": "轮询间隔",
+          "is_debug": "调试模式"
+        },
+        "data_description": {
+          "is_debug": "打开调试开关后，将会打印所有请求日志。可在[配置]-[系统]-[日志]中查看。\n如需反馈异常，可至 **HassBox全屋智能** 微信公众号联系客服。"
+        }
+      },
+      "user": {
+        "title": "重新登录国家电网",
+        "description": "刷新 Token 异常，需重新登录。\n如需反馈异常，可至 **HassBox全屋智能** 微信公众号联系客服。"
+      },
+      "code_login": {
+        "title": "短信验证码登录",
+        "description": "手机号需先在网上电网 App 注册并绑定户号",
+        "data": {
+          "phone": "请输入手机号"
+        }
+      },
+      "verfiy_code": {
+        "title": "短信验证码登录",
+        "data": {
+          "code": "请输入验证码"
+        }
+      },
+      "check_qr_code": {
+        "title": "网上国网 App 扫码登录",
+        "description": "\n {qr_image} \n\n\n 请使用 网上国网 App 扫码登录，确认登录后再点击提交。"
+      }
+    },
+    "abort": {
+      "single_instance_allowed": "该集成已经配置过了，且只能配置一次。若要重新配置，请先删除旧集成。",
+      "get_qr_code_error": "{errmsg}",
+      "check_qr_code_error": "{errmsg}"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "balance": {
+        "name": "账户余额"
+      },
+      "year_ele_num": {
+        "name": "年度累计用电"
+      },
+      "year_ele_cost": {
+        "name": "年度累计电费"
+      },
+      "last_month_ele_num": {
+        "name": "上个月用电"
+      },
+      "last_month_ele_cost": {
+        "name": "上个月电费"
+      },
+      "month_ele_num": {
+        "name": "当月累计用电"
+      },
+      "month_p_ele_num": {
+        "name": "当月累计峰用电"
+      },
+      "month_v_ele_num": {
+        "name": "当月累计谷用电"
+      },
+      "month_n_ele_num": {
+        "name": "当月累计平用电"
+      },
+      "month_t_ele_num": {
+        "name": "当月累计尖用电"
+      },
+      "daily_ele_num": {
+        "name": "日总用电"
+      },
+      "daily_p_ele_num": {
+        "name": "日峰用电"
+      },
+      "daily_v_ele_num": {
+        "name": "日谷用电"
+      },
+      "daily_n_ele_num": {
+        "name": "日平用电"
+      },
+      "daily_t_ele_num": {
+        "name": "日尖用电"
+      },
+      "daily_lasted_date": {
+        "name": "最新日用电日期"
+      },
+      "ladder_level": {
+        "name": "当前阶梯"
+      },
+      "refresh_time": {
+        "name": "最近刷新时间"
+      }
+    }
+  }
+}
