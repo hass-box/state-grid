@@ -1,0 +1,36 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  release-zip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: ZIP Component Dir
+        run: |
+          cd ${{ github.workspace }}/custom_components/state_grid
+          zip -r state_grid.zip ./
+
+      - name: Upload zip to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: ${{ github.workspace }}/custom_components/state_grid/state_grid.zip
+          asset_name: state_grid.zip
+          tag: ${{ github.ref }}
+          overwrite: true
+
+      - name: Upload zip to OSS
+        uses: tvrcgo/upload-to-oss@master
+        with:
+          key-id: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_ID }}
+          key-secret: ${{ secrets.ALIYUN_OSS_ACCESS_KEY_SECRET }}
+          region: ${{ secrets.ALIYUN_OSS_REGION }}
+          bucket: ${{ secrets.ALIYUN_OSS_BUCKET }}
+          assets: |
+            ${{ github.workspace }}/custom_components/state_grid/state_grid.zip:/state_grid.zip
+            ${{ github.workspace }}/custom_components/state_grid/state_grid.zip:/integration/hass-box/state_grid/${{ github.ref_name }}/state_grid.zip
