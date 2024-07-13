@@ -1,0 +1,9 @@
+{
+  "domain": "state_grid",
+  "name": "国家电网",
+  "codeowners": ["@hassbox"],
+  "config_flow": true,
+  "documentation": "https://hassbox.cn/",
+  "iot_class": "cloud_polling",
+  "version": "0.1.4"
+}
